@@ -1,0 +1,175 @@
+/* hangman.css */
+
+/* Reset some default styles for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Root Element Styling */
+#rootElement {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Div Display Sections */
+#word-display {
+    font-size: 2em;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#letters-guessed,
+#attempts-display,
+#score-display {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+/* Guess Form Styling */
+#guess-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#guess-form label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#guess-form input[type="text"] {
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Restart and Play Again Button */
+#rootElement button[type="button"],
+#rootElement button[type="submit"] {
+    width: 100%;
+}
+
+/* End Screen Styling */
+.end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.end-screen div {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.end-screen button {
+    width: auto;
+    padding: 10px 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #rootElement {
+        padding: 20px;
+    }
+
+    #word-display {
+        font-size: 1.5em;
+        letter-spacing: 5px;
+    }
+
+    #letters-guessed,
+    #attempts-display,
+    #score-display {
+        font-size: 1em;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    #guess-form {
+        flex-direction: column;
+    }
+
+    #guess-form label,
+    #guess-form input[type="text"],
+    #guess-form button {
+        margin-bottom: 10px;
+    }
+}
