@@ -1,0 +1,36 @@
+{
+  "name": "hangman_backend",
+  "version": "1.0.0",
+  "description": "Backend server for Hangman game",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UNCJm/COMP426-Final-Project.git"
+  },
+  "keywords": [
+    "hangman",
+    "backend",
+    "api"
+  ],
+  "author": "COMP 426 Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UNCJm/COMP426-Final-Project/issues"
+  },
+  "homepage": "https://github.com/UNCJm/COMP426-Final-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "node-fetch": "^2.7.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

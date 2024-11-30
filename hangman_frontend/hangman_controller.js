@@ -19,6 +19,17 @@ export class HangManController {
 
     resetGame() { // calls model to reset game state to 'uninitialized'
         if (this.#model.getState() != 'playing') return;
-        this.#model.resetGame();
+        this.#model.resetState();
+    }
+    
+    playAgain() {
+        if (this.#model.getState() === 'finished') {
+            this.#model.keepPlaying(); 
+        }
+    }
+
+    async saveHighScore() {
+        if (this.#model.getCurrentScore() < this.#model.getHighScore()) return;
+        await this.#model.saveHighScore();
     }
 }
