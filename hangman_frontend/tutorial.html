@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hangman Tutorial</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+        <link rel ="stylesheet" type="text/css" href="tutorial.css">
+    </head>
+    <body>
+        <div id="title">HANGMAN</div>
+        <h1>SETTING UP THE GAME</h1>
+        <div class="paragraph-with-img">
+            <div style="padding: 10px;">
+                <p>You must have node.js installed. Open the folder with Visual Studio Code. Open the terminal in VSC, and type in these lines of code sequentially:</p>
+                <p><i>cd hangman_backend<br>npm install<br>npm start</i></p>
+                <p>(It is unnecessary to run <i>npm install</i> after the first time)</p>
+                <p>Afterwards, open a browser of your choosing and enter this address:</p>
+                <p><i>http://localhost:3000/hangman.html</i></p>
+                <p>Any time in game, you can click on the 'HANGMAN' logo to return to the title screen and save your high score.</p>
+            </div>
+        </div>
+        <h1>BASIC RULES</h1>
+        <div class="paragraph-with-img">
+            <div class="inline-paragraph">
+                <p>The game functions as your normal game of Hangman, and you gain a single point for every word you complete, but there's a few differences.</p>
+                <p>One, when you start a new word, a few letters are already revealed to you. The number of letters revealed depends on how many unique letters a word has. In that sense, the game is easier, but there's a reason for this.</p>
+                <p>Second... well, there are more than 2 differences, but I'll start with <span class="purple-text">Curses</span>.</p>
+            </div>
+            <img src="assets/images/guide-4.png" class="inline-img">
+        </div>
+        <h1>CURSES</h1>
+        <div class="paragraph-with-img">
+            <img src="assets/images/guide-1.png" class="inline-img">
+            <div class="inline-paragraph">
+                <p>You will notice a purple bar running below the Hangman display. This is the <span class="purple-text">Curse Meter</span>.</p>
+                <p>Whenever the <span class="purple-text">Curse Meter</span> fills up, a <span class="purple-text">Curse</span> latches upon a letter that is:
+                    <br>1) Not a letter you've currently guessed this round.
+                    <br>2) Not a CORRECT letter for this round's word.
+                </p>
+                <p>When you guess a letter attached with a <span class="purple-text">Curse</span>, it will be shown with a purple color, and counts as 2 wrong guesses instead of 1.</p>
+                <p>You can't see which letters have a <span class="purple-text">Curse</span>, but you can see how many <span class="purple-text">Curses</span> are in the current pool.</p>
+            </div>
+        </div>
+        <div class="paragraph-with-img">
+            <div style="padding: 10px;">
+                <p>How <span class="purple-text">Curses</span> can be removed from the pool:
+                    <br>1) A single <span class="purple-text">Curse</span> gets removed every time you complete a word.
+                    <br>2) When you trigger a <span class="purple-text">Curse</span>, it gets removed from the pool.
+                    <br>3) When you start a new round, existing <span class="purple-text">Curses</span> that are actually in the new word are removed from the pool.
+                    <br>4) After every fifth round, ALL <span class="purple-text">Curses</span> are removed from the pool.
+                    <br>5) When you finish a word, the <span class="purple-text">Curse Meter</span> resets. This doesn't remove a <span class="purple-text">Curse</span>, but technically it prevents one.
+                </p>
+            </div>
+        </div>
+        <h1>SUBJECTS</h1>
+        <div class="paragraph-with-img">
+            <div class="inline-paragraph">
+                <p>Most of the time, the Hangman figure will look normal as shown above, with the Subject ID of 'johndoe'. However, that's not always the case.</p>
+                <p>With a 20% chance, you may encounter an 'Elite' Subject, with additional effects that will make your life harder for that round, or may flip game mechanics on its head.</p>
+                <p>Outside of that 20% chance, every FIFTH round are guaranteed to be an Elite. There are 6 Elites in total.</p>
+                <p>As you'd recall, every fifth round will also cleanse all <span class="purple-text">Curses</span>,
+                    which means if you manage to beat the Elite, you get all <span class="purple-text">Curses</span> cleansed, but it also means the moment when you have to fight one is when <span class="purple-text">Curses</span>
+                    have accumulated the most.</p> 
+            </div>
+            <img src="assets/images/guide-2.png" class="inline-img">
+        </div>
+        <h1>THE GOAL OF THE GAME</h1>
+        <div class="paragraph-with-img">
+            <img src="assets/images/guide-3.png" class="inline-img">
+            <div class="inline-paragraph">
+                <p>You can simply play indefinitely until you lose, but the breakpoint I intended for people to aim for is 30 points, and here's why:</p>
+                <p>Every TENTH round are guaranteed to be a 'Boss' Subject. They are SIGNIFICANTLY deadlier than an Elite, and there are 3 in total.</p>
+                <p>Bosses will never appear outside of every tenth round, and will not reappear onwards until you've defeated all of them.</p>
+                <p>This means that if you've managed a high score of 30 or higher, you've achieved the feat of defeating all 3 Bosses in a single run, which, believe me, is harder than it sounds.</p>
+                <p>If you've managed to do so, there's a surprise waiting for you on the title screen.</p>
+            </div>
+        </div>
+        <h1 style="font-size: 400%;">THAT'S ALL FOLKS, HAVE FUN!</h1>
+    </body>
+</html>

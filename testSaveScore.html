@@ -15,28 +15,43 @@
         const message = document.getElementById('message');
 
         button.addEventListener('click', async () => {
+
             try {
-                const response = await fetch('http://localhost:3000/highscore', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        username: 'TestUser',
-                        highScore: 100
-                    })
-                });
-
+                const API_KEY = "w092h6d3ic4w0p70g1u6sf0vppjp3x4qygk1fayvpgkrof3wa";
+                const response = await fetch('https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&excludePartOfSpeech=family-name%2Cgiven-name%2Cproper-noun%2Cproper-noun-plural%2Cproper-noun-posessive%2Cabbreviation%2Cidiom%2Ccombining-form%2Cindefinite-article%2Cphrasal-verb%2Csuffix&minDictionaryCount=10&minLength=4&limit=100&api_key=' + API_KEY);
                 if (!response.ok) {
-                    const errorDetails = await response.json();
-                    throw new Error(`Error: ${errorDetails.error}`);
+                    throw new Error(`Failed to fetch words (${response.status})`);
                 }
-
-                const result = await response.json();
-                console.log('High score saved successfully:', result.message);
-                message.textContent = `Success: ${result.message}`;
+                let bodyData = await response.json();
+                console.log(bodyData);
+                console.log(bodyData[0]);
+                console.log(bodyData[0]['word']);
             } catch (error) {
-                console.error('Error saving high score:', error);
-                message.textContent = `Error: ${error.message}`;
+                console.error('Error fetching word:', error);
             }
+
+            // try {
+            //     const response = await fetch('http://localhost:3000/highscore', {
+            //         method: 'POST',
+            //         headers: { 'Content-Type': 'application/json' },
+            //         body: JSON.stringify({
+            //             username: 'TestUser',
+            //             highScore: 100
+            //         })
+            //     });
+
+            //     if (!response.ok) {
+            //         const errorDetails = await response.json();
+            //         throw new Error(`Error: ${errorDetails.error}`);
+            //     }
+
+            //     const result = await response.json();
+            //     console.log('High score saved successfully:', result.message);
+            //     message.textContent = `Success: ${result.message}`;
+            // } catch (error) {
+            //     console.error('Error saving high score:', error);
+            //     message.textContent = `Error: ${error.message}`;
+            // }
         });
     </script>
 </body>

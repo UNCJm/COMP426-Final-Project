@@ -1,0 +1,50 @@
+body {
+    background-image: url("assets/images/bg.png");
+    background-color: white;
+    background-size: cover;
+    color: white;
+    font-family: "Special Elite", system-ui;
+    text-align: center;
+}
+
+#title {
+    font-family: "Cabin Sketch", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 600%;
+    text-align: center;
+    left: 50%;
+    right: 50%;
+    width: max-content;
+    margin: auto;
+    margin-bottom: 10px;
+    user-select: none;
+}
+#title:hover {
+    cursor: pointer;
+}
+h1 {
+    font-size: 250%;
+}
+.paragraph-with-img {
+    width: 60%;
+    margin: auto;
+    font-size: 150%;
+    text-align: left;
+    text-shadow: 0px 0px 3px black;
+}
+.inline-paragraph {
+    padding: 10px;
+    vertical-align: top;
+    display: inline-block;
+    width: 65%;
+    text-align: left;
+}
+.inline-img {
+    width: 30%;
+    display: inline-block;
+    border: white solid 5px;
+}
+.purple-text {
+    color: rgb(150, 131, 167);
+}

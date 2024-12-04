@@ -1,30 +1,33 @@
-export class HangManController {
+export class HangManController extends EventTarget {
 
     #model;
     
     constructor(model) {
+        super();
         this.#model = model;
     }
 
-    startGame(difficulty, playerName) { // takes in difficulty and player name and sends to model to start game
-        if (/^(normal|advanced)$/i.test(difficulty) == false) return alert('enter "normal" or "advanced" as difficulty input');
-        this.#model.initialize(difficulty, playerName);
+    async startGame() { // takes in difficulty and player name and sends to model to start game
+        await this.#model.initialize();
     }
 
     handleGuess(letter) { // sends guess input to model 
-        if (this.#model.isLetterGuessed(letter)) return alert('letter already guessed'); 
-        if (letter.length === 1 && /^[a-z]$/i.test(letter) == false) return alert('incorrect input. type in a single alphabet letter');
+        if (this.#model.isLetterGuessed(letter))  {
+            this.dispatchEvent(new Event('duplicateletter'));
+            return;
+        }
         this.#model.guess(letter);
     }
 
-    resetGame() { // calls model to reset game state to 'uninitialized'
-        if (this.#model.getState() != 'playing') return;
-        this.#model.resetState();
+    nextWord() {
+        this.#model.addScore(1);
+        this.#model.setGame();
     }
     
     playAgain() {
-        if (this.#model.getState() === 'finished') {
-            this.#model.keepPlaying(); 
+        if (this.#model.getState() == 'finished') {
+            this.#model.addScore(-this.#model.getCurrentScore());
+            this.#model.initialize();
         }
     }
 

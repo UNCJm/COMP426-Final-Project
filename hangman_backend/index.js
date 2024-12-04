@@ -4,9 +4,11 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../hangman_frontend')))
 
 // Fetch highscore by username
 app.get('/highscore/:username', async (req, res) => {
